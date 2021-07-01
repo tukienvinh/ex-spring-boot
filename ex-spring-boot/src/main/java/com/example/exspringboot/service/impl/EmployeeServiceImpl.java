@@ -2,6 +2,8 @@ package com.example.exspringboot.service.impl;
 
 import com.example.exspringboot.entity.Employee;
 import com.example.exspringboot.exception.EmployeeException;
+import com.example.exspringboot.exception.EmployeeNameException;
+import com.example.exspringboot.exception.EmployeeNameNullException;
 import com.example.exspringboot.repository.EmployeeRepository;
 import com.example.exspringboot.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee saveEmployee(Employee employee) {
+        Optional<Employee> employeeOptional = employeeRepository.findEmployeeByName(employee.getName());
+        if (employee.getName() == null || employee.getName().length() == 0)
+            throw new EmployeeNameNullException();
+        if (employeeOptional.isPresent()) {
+            throw new EmployeeNameException(employee.getName());
+        }
         return employeeRepository.save(employee);
     };
 
@@ -39,6 +47,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee updateEmployee(Employee newEmployee, Long id) {
+        if (newEmployee.getName() == null)
+            throw new EmployeeNameNullException();
         return employeeRepository.findById(id)
                 .map(employee -> {
                     employee.setName(newEmployee.getName());
