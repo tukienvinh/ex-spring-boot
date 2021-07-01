@@ -1,13 +1,18 @@
 package com.example.exspringboot.service;
 
 import com.example.exspringboot.entity.Employee;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class EmployeeService {
-    public static String getEmployees(){
-        return "Hello";
-    }
+public interface EmployeeService {
+    public List<Employee> retrieveEmployees();
+
+    public Optional<Employee> getEmployee(Long employeeId);
+
+    public Employee saveEmployee(Employee employeeId);
+
+    public void deleteEmployee(Long employeeId);
+
+    public void updateEmployee(Employee employee);
 }
