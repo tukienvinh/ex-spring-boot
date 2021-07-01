@@ -48,4 +48,16 @@ public class EmployeeController {
         map.put("message", "Delete successfully!");
         return map;
     }
+
+    @PutMapping("/update/{id}")
+    public HashMap<String, String> updateEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
+        Optional<Employee> employee = employeeService.getEmployee(id);
+        employeeService.updateEmployee(newEmployee, id);
+        HashMap<String, String> map = new HashMap<>();
+        if (employee.isPresent() == false) {
+            map.put("message", "Add new employee successfully!");
+        }
+        else map.put("message", "Update successfully!");
+        return map;
+    }
 }
