@@ -1,6 +1,8 @@
 drop table if exists employee;
 
-ALTER SEQUENCE employees_sequence restart with 100 increment 1;
+drop sequence if exists employee_sequence;
+
+create sequence employee_sequence increment 1 start 1;
 
 create table employee (
 	id int not null default nextval('employees_sequence'),
