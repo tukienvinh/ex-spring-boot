@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee updateEmployee(Employee newEmployee, Long id) {
-        if (newEmployee.getName() == null)
+        if (newEmployee.getName() == null || newEmployee.getName().length() == 0)
             throw new EmployeeNameNullException();
         return employeeRepository.findById(id)
                 .map(employee -> {
