@@ -38,17 +38,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ExSpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ex-spring-boot" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.exspringboot.ExSpringBootApplication" />
@@ -68,7 +57,8 @@
       <workItem from="1625075389450" duration="6559000" />
       <workItem from="1625122979889" duration="13368000" />
       <workItem from="1625142842392" duration="2400000" />
-      <workItem from="1625150567633" duration="6016000" />
+      <workItem from="1625150567633" duration="6063000" />
+      <workItem from="1625216357732" duration="568000" />
     </task>
     <servers />
   </component>
