@@ -33,7 +33,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public Employee saveEmployee(Employee employee) {
+    public Employee saveEmployee(@RequestBody Employee employee) {
         return employeeService.saveEmployee(employee);
     }
 
